@@ -1,0 +1,186 @@
+{
+  "users": [
+    {
+      "title": "Moodle Test",
+      "url": "https://moodletest.iut-tlse3.fr/",
+      "image": "src/moodletest.jpg"
+    },
+    {
+      "title": "Limesurvey",
+      "url": "https://enquetes.univ-tlse3.fr/admin/",
+      "image": "src/limesurvey.png"
+    },
+    {
+      "title": "Voltaire",
+      "url": "https://compte.groupe-voltaire.fr/user/universe/2932/list",
+      "image": "src/voltaire.png"
+    },
+    {
+      "title": "GLPI",
+      "url": "https://support.iut-tlse3.fr",
+      "image": "src/glpi.png"
+    },
+    {
+      "title": "ENT personnel",
+      "url": "https://ent-personnels.univ-tlse3.fr",
+      "image": "src/ent.png"
+    },
+    {
+      "title": "Office",
+      "url": "https://portal.office.com",
+      "image": "src/office.png"
+    },
+    {
+      "title": "Compilatio",
+      "url": "https://app.compilatio.net",
+      "image": "src/compilatio.png"
+    },
+    {
+      "title": "Wooclap",
+      "url": "https://app.wooclap.com",
+      "image": "src/wooclap.jpg"
+    },
+    {
+      "title": "Wooflash",
+      "url": "https://app.wooflash.com",
+      "image": "src/wooflash.jpg"
+    },
+    {
+      "title": "QUizWizard",
+      "url": "https://app.getquizwizard.com/",
+      "image": "src/quizwizard.jpg"
+    },
+    {
+      "title": "Mindview",
+      "url": "https://mindviewonline.com",
+      "image": "src/mindview.png"
+    },
+    {
+      "title": "Mes services numériques",
+      "url": "https://mes-services-numeriques.iut-tlse3.fr/",
+      "image": "src/iut.png"
+    },
+    {
+      "title": "GCID",
+      "url": "https://gcid.iut-tlse3.fr",
+      "image": "src/gcid.png"
+    },
+    {
+      "title": "Mahara",
+      "url": "https://moodle.iut-tlse3.fr/mahara/",
+      "image": "src/mahara.png"
+    },
+    {
+      "title": "Softphone",
+      "url": "https://softphone.iut-tlse3.fr/",
+      "image": "src/softphone.png"
+    },
+    {
+      "title": "Celcat - emploi du temps",
+      "url": "https://edt.iut-tlse3.fr/planning/",
+      "image": "src/celcatg.png"
+    },
+    {
+      "title": "Celcat - gestion emploi du temps",
+      "url": "https://edt.iut-tlse3.fr/",
+      "image": "src/celcat.jpg"
+    },
+    {
+      "title": "Qui fait quoi",
+      "url": "https://quifaitquoi.iut-tlse3.fr/",
+      "image": "src/quifaitquoi.png"
+    },
+    {
+      "title": "Pass IUT",
+      "url": "https://www.iut-tlse3.fr/passiut/",
+      "image": "src/iut.png"
+    },
+    {
+      "title": "Trombinoscope",
+      "url": "https://trombi.iut-tlse3.fr/",
+      "image": "src/trombi.png"
+    },
+    {
+      "title": "Sympa personnel",
+      "url": "https://www.iut-tlse3.fr/wws/home",
+      "image": "src/sympa.png"
+    },
+    {
+      "title": "Sympa étudiant",
+      "url": "https://www.iut-tlse3.fr/wwsetu",
+      "image": "src/sympa.png"
+    },
+    {
+      "title": "IUT en ligne",
+      "url": "https://iut.univ-tlse3.fr/",
+      "image": "src/iut.png"
+    },
+    {
+      "title": "Sensibilisation cybersécurité",
+      "url": "https://hameconnage.iut-tlse3.fr/",
+      "image": "src/cybersecurite.png"
+    },
+    {
+      "title": "Ecri+",
+      "url": "https://ecriplus.fr/",
+      "image": "src/ecriplus.png"
+    },
+    {
+      "title": "ENT étudiants",
+      "url": "https://ent-etudiants.univ-tlse3.fr",
+      "image": "src/ent.png"
+    },
+    {
+      "title": "Moodle",
+      "url": "https://moodle.iut-tlse3.fr/",
+      "image": "src/1759236849990.png"
+    }
+  ],
+  "admin": [
+    {
+      "title": "Limesurvey (sans CAS)",
+      "url": "https://enquetes.univ-tlse3.fr/admin/authentication/sa/login/noAuthCAS/true",
+      "image": "src/limesurvey.png"
+    },
+    {
+      "title": "Ecri+ (suivi des étudiants)",
+      "url": "https://eval.tests.ecriplus.fr/",
+      "image": "src/ecriplus.png"
+    },
+    {
+      "title": "Matomo",
+      "url": "https://www.iut-tlse3.fr/analyseweb",
+      "image": "src/matomo.png"
+    },
+    {
+      "title": "Admin teams",
+      "url": "https://admin.teams.microsoft.com/",
+      "image": "src/teams.jpg"
+    },
+    {
+      "title": "Admin Sharepoint online",
+      "url": "https://toulouse3-admin.sharepoint.com",
+      "image": "src/sharepoint.png"
+    },
+    {
+      "title": "Sharepoint onpremise : bac à sable tice",
+      "url": "https://bacasable-tice.iut-tlse3.fr/",
+      "image": "src/sharepoint.png"
+    },
+    {
+      "title": "Entra",
+      "url": "https://entra.microsoft.com",
+      "image": "src/entra.jpg"
+    },
+    {
+      "title": "Base de données Exchange",
+      "url": "https://polesi.iut-tlse3.fr/migration-exchange-db/",
+      "image": "src/exchange.png"
+    },
+    {
+      "title": "Base de données Moodle",
+      "url": "http://www.iut-tlse3.fr/phpmyadmin/",
+      "image": "src/moodle.png"
+    }
+  ]
+}

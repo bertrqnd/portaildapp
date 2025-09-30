@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portail des applications TICE</title>
+    <script type="module" src="script.js"></script>
+</head>
+<body>
+    <header class="header-container">
+        <h1>Portail des applications TICE</h1>
+        <!-- Bouton pour afficher/cacher le formulaire -->
+        <button id="toggle-form">+</button>
+    </header>
+    <main>
+
+        <h2>Applications Utilisateur</h2>
+        <div id="userapp-container"></div>
+
+        <h2>Applications Administrateur</h2>
+        <div id="adminapp-container"></div>
+
+        <!-- Formulaire d'ajout d'application -->
+        <div id="form-container" style="display:none;">
+            <h2 id="form-title">Ajouter une application</h2>
+            <form id="appForm" enctype="multipart/form-data">
+                <label for="type">Type</label>
+                <select id="type" required>
+                    <option value="users">Utilisateur</option>
+                    <option value="admin">Admin</option>
+                </select>
+
+                <label for="title">Titre</label>
+                <input type="text" id="title" placeholder="Titre" required>
+
+                <label for="url">URL</label>
+                <input type="url" id="url" placeholder="https://..." required>
+
+                <label for="image">Image</label>
+                <input type="file" id="image" accept="image/*" required>
+
+                <button type="submit">Enregistrer</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
