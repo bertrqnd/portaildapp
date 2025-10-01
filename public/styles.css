@@ -87,16 +87,16 @@
         /* --- Bouton supprimer (X) --- */
         .app-card .delete-btn {
         position: absolute;
-        top: 5px;
-        right: 5px;
+        top: 1px;
+        right: 7px;
         font-size: 16px;
-        color: #ff4d4d;
+        color: #1f1f1f;
         cursor: pointer;
-        opacity: 0; /* invisible par défaut */
+        opacity: 0; 
         }
 
         .show-delete .app-card .delete-btn {
-        opacity: 1; /* visible quand show-delete est actif */
+        opacity: 1; 
         }
 
         .app-card .delete-btn:hover {
@@ -109,6 +109,7 @@
         background: #007bff;
         border: none;
         font-weight: bold;
+        font-size: larger;
         border-radius: 5px;
         cursor: pointer;
         transition: transform 0.2s ease;

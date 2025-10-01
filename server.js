@@ -122,7 +122,6 @@ app.delete('/api/services/:type/:title', async (req, res) => {
 
     // Supprimer l'application du tableau
     services[type].splice(appIndex, 1);
-
     await fs.writeFile('services.json', JSON.stringify(services, null, 2));
     res.json({ message: 'Service et image supprimés avec succès' });
   } catch (error) {

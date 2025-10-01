@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Tri des applications par ordre alphabétique
             services.users.sort((a, b) => a.title.localeCompare(b.title));
-             services.admin.sort((a, b) => a.title.localeCompare(b.title));
+            services.admin.sort((a, b) => a.title.localeCompare(b.title));
 
+            // Création des cartes d'application
             services.users.forEach(app => userContainer.appendChild(createAppCard(app, 'users')));
             services.admin.forEach(app => adminContainer.appendChild(createAppCard(app, 'admin')));
         } catch (error) {
