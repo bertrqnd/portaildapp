@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Récupération des services
     async function fetchServices() {
         try {
-            const reponse = await fetch("http://localhost:3000/api/services");
+            const reponse = await fetch("/api/services"); // ✅ chemin relatif
             const services = await reponse.json();
 
             userContainer.innerHTML = '';
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             services.users.sort((a, b) => a.title.localeCompare(b.title));
             services.admin.sort((a, b) => a.title.localeCompare(b.title));
 
-            // Affichage des applications dans leurs conteneurs respectifs
+            // Affichage des applications
             services.users.forEach(app => userContainer.appendChild(createAppCard(app, 'users')));
             services.admin.forEach(app => adminContainer.appendChild(createAppCard(app, 'admin')));
         } catch (error) {
@@ -29,13 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Création d'une carte d'application-
+    // Création d'une carte d'application
     function createAppCard(app, type) {
         const card = document.createElement('div');
         card.className = 'app-card';
         card.style.position = 'relative';
 
-        //lien
+        // Lien
         const link = document.createElement('a');
         link.href = app.url || '#';
         link.target = '_blank';
@@ -44,19 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.opacity = '0.5';
         }
 
-        //logo
+        // Logo
         const img = document.createElement('img');
-        img.src = app.image;
+        img.src = app.image; // ✅ ex: "src/123456.png" → fonctionne en dev et prod
         img.alt = app.title;
 
-        //titre
+        // Titre
         const title = document.createElement('p');
         title.textContent = app.title;
 
         link.appendChild(img);
         link.appendChild(title);
         card.appendChild(link);
-
 
         // Bouton de suppression
         const deleteBtn = document.createElement('span');
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.addEventListener('click', async () => {
             if (confirm(`Supprimer "${app.title}" ?`)) {
                 try {
-                    await fetch(`http://localhost:3000/api/services/${type}/${encodeURIComponent(app.title)}`, {
+                    await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, { // ✅ chemin relatif
                         method: 'DELETE'
                     });
                     fetchServices();
@@ -93,9 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-
     // Soumission du formulaire
-
     appForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -108,13 +105,14 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("Tous les champs sont obligatoires");
             return;
         }
+
         const formData = new FormData();
         formData.append('title', title);
         formData.append('url', url);
         formData.append('image', imageFile);
 
         try {
-            const res = await fetch(`http://localhost:3000/api/services/${type}`, {
+            const res = await fetch(`/api/services/${type}`, { // ✅ chemin relatif
                 method: 'POST',
                 body: formData
             });
@@ -133,5 +131,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Erreur lors de l\'ajout du service :', err);
         }
     });
+
     fetchServices();
 });
