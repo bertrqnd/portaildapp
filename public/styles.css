@@ -50,12 +50,11 @@
             position: relative;
             display: flex;
             align-items: center;
-            border: 1px solid #ddd;
             padding: 10px;
             max-width: 100%;
             transition: box-shadow 0.2s ease, transform 0.2s ease;
             background: #fff;
-            border-radius: 10px;
+            border-radius: 5px;
         }
         
         .app-card:hover {
@@ -65,7 +64,7 @@
         .app-card a {
             display: flex;
             align-items: center;
-            color: #505050;
+            color: #1f1f1f;
             text-decoration: none;
             font-weight: bold;
             width: 100%;
@@ -88,7 +87,7 @@
         .app-card .delete-btn {
         position: absolute;
         top: 0px;
-        right: 7px;
+        right: 4px;
         font-size: 14px;
         color: #1f1f1f;
         cursor: pointer;
