@@ -126,14 +126,14 @@
       "image": "src/ent.png"
     },
     {
-      "title": "Moodle",
-      "url": "https://moodle.iut-tlse3.fr/",
-      "image": "src/1759319653380.png"
-    },
-    {
       "title": "Ecri+",
       "url": "https://app.tests.ecriplus.fr/connexion",
       "image": "src/1759320759533.png"
+    },
+    {
+      "title": "Moodle",
+      "url": "https://moodle.iut-tlse3.fr/",
+      "image": "src/1759325669984.png"
     }
   ],
   "admin": [

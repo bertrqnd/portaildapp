@@ -61,8 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const deleteBtn = document.createElement('span');
         deleteBtn.textContent = '✖';
         deleteBtn.className = 'delete-btn';
-        deleteBtn.addEventListener('click', async () => {
-            if (confirm(`Supprimer "${app.title}" ?`)) {
+        deleteBtn.addEventListener('click', async () =>  {
                 try {
                     await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, { // ✅ chemin relatif
                         method: 'DELETE'
@@ -72,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Erreur lors de la suppression :', err);
                 }
             }
-        });
+        );
         card.appendChild(deleteBtn);
 
         return card;
