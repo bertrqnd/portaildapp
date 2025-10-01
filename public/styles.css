@@ -87,9 +87,9 @@
         /* --- Bouton supprimer (X) --- */
         .app-card .delete-btn {
         position: absolute;
-        top: 1px;
+        top: 0px;
         right: 7px;
-        font-size: 16px;
+        font-size: 14px;
         color: #1f1f1f;
         cursor: pointer;
         opacity: 0; 

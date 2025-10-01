@@ -1,5 +1,4 @@
 const express = require('express');
-const cors = require('cors');
 const fs = require('fs').promises;
 const path = require('path');
 const multer = require('multer');
@@ -17,15 +16,12 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage }); // <- utiliser le storage
 
-
-
+// Initialisation d'Express
 const app = express();
 const PORT = 3000;
 
 
-
 // Middleware
-app.use(cors());
 app.use(express.json());
 app.use(express.static('public')); // Servir les fichiers statiques (HTML, CSS, images)
 
@@ -39,7 +35,7 @@ app.get('/api/services', async (req, res) => {
   }
 });
 
-// Route pour récupérer uniquement les services utilisateurs
+// Route pour récupérer les services utilisateurs
 app.get('/api/services/users', async (req, res) => {
   try {
     const data = await fs.readFile('services.json', 'utf8');
@@ -50,7 +46,7 @@ app.get('/api/services/users', async (req, res) => {
   }
 });
 
-// Route pour récupérer uniquement les services admin
+// Route pour récupérer les services admin
 app.get('/api/services/admin', async (req, res) => {
   try {
     const data = await fs.readFile('services.json', 'utf8');

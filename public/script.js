@@ -1,17 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --------------------
     // Conteneurs
-    // --------------------
     const userContainer = document.getElementById('userapp-container');
     const adminContainer = document.getElementById('adminapp-container');
     const toggleForm = document.getElementById('toggle-form');
     const formContainer = document.getElementById('form-container');
     const appForm = document.getElementById('appForm');
 
-    // --------------------
+
     // Récupération des services
-    // --------------------
     async function fetchServices() {
         try {
             const reponse = await fetch("http://localhost:3000/api/services");
@@ -24,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             services.users.sort((a, b) => a.title.localeCompare(b.title));
             services.admin.sort((a, b) => a.title.localeCompare(b.title));
 
-            // Création des cartes d'application
+            // Affichage des applications dans leurs conteneurs respectifs
             services.users.forEach(app => userContainer.appendChild(createAppCard(app, 'users')));
             services.admin.forEach(app => adminContainer.appendChild(createAppCard(app, 'admin')));
         } catch (error) {
@@ -32,14 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --------------------
-    // Création d'une carte d'application
-    // --------------------
+    // Création d'une carte d'application-
     function createAppCard(app, type) {
         const card = document.createElement('div');
         card.className = 'app-card';
         card.style.position = 'relative';
 
+        //lien
         const link = document.createElement('a');
         link.href = app.url || '#';
         link.target = '_blank';
@@ -48,10 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
             link.style.opacity = '0.5';
         }
 
+        //logo
         const img = document.createElement('img');
         img.src = app.image;
         img.alt = app.title;
 
+        //titre
         const title = document.createElement('p');
         title.textContent = app.title;
 
@@ -81,9 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // --------------------
     // Toggle du formulaire
-    // --------------------
     toggleForm.addEventListener('click', () => {
         const showing = formContainer.style.display === 'block';
         if (!showing) {
@@ -97,9 +93,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --------------------
+
     // Soumission du formulaire
-    // --------------------
+
     appForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 

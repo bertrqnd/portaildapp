@@ -133,7 +133,7 @@
     {
       "title": "Moodle",
       "url": "https://moodle.iut-tlse3.fr/",
-      "image": "src/1759236849990.png"
+      "image": "src/1759319653380.png"
     }
   ],
   "admin": [
@@ -144,7 +144,7 @@
     },
     {
       "title": "Ecri+ (suivi des étudiants)",
-      "url": "https://eval.tests.ecriplus.fr/",
+      "url": "",
       "image": "src/ecriplus.png"
     },
     {
@@ -180,7 +180,7 @@
     {
       "title": "Base de données Moodle",
       "url": "http://www.iut-tlse3.fr/phpmyadmin/",
-      "image": "src/moodle.png"
+      "image": "src/1759319588629.png"
     }
   ]
 }
