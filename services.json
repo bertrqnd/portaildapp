@@ -84,6 +84,11 @@
       "title": "Moodle",
       "url": "https://moodle.iut-tlse3.fr/",
       "image": "src/1759325669984.png"
+    },
+    {
+      "title": "Google",
+      "url": "https://www.google.com",
+      "image": "src/1759414345360.png"
     }
   ],
   "admin": [
@@ -96,11 +101,6 @@
       "title": "Matomo",
       "url": "https://www.iut-tlse3.fr/analyseweb",
       "image": "src/matomo.png"
-    },
-    {
-      "title": "Sharepoint onpremise : bac à sable tice",
-      "url": "https://bacasable-tice.iut-tlse3.fr/",
-      "image": "src/sharepoint.png"
     },
     {
       "title": "Entra",

@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-        if (imageFile.size > 2 * 1024 * 1024) { // 2MB
+        if (imageFile && imageFile.size > 2 * 1024 * 1024) { // 2MB
             alert("La taille de l'image ne doit pas dépasser 2MB");
             return;
         }
