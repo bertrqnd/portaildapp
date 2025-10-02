@@ -77,17 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return card;
     }
 
-    // Toggle du formulaire
+    // Toggle du formulaire et changement du bouton
     toggleForm.addEventListener('click', () => {
         const showing = formContainer.style.display === 'block';
         if (!showing) {
             formContainer.style.display = 'block';
             userContainer.classList.add('show-delete');
             adminContainer.classList.add('show-delete');
+            toggleForm.textContent = '-';
+            toggleForm.classList.add('active');
         } else {
             formContainer.style.display = 'none';
             userContainer.classList.remove('show-delete');
             adminContainer.classList.remove('show-delete');
+            toggleForm.textContent = '+';
+            toggleForm.classList.remove('active');
         }
     });
 

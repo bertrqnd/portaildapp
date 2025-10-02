@@ -119,6 +119,15 @@
         background: #0056b3;
         }
 
+        button#toggle-form.active {
+        background: #dc3545; /* rouge bootstrap-like */
+        color: #fff;
+        }
+
+        button#toggle-form.active:hover {
+        background: #a71d2a; /* rouge plus foncé au survol */
+        }   
+
 
         #form-container {
         display: none;
