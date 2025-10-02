@@ -120,12 +120,12 @@
         }
 
         button#toggle-form.active {
-        background: #dc3545; /* rouge bootstrap-like */
+        background: #dc3545; 
         color: #fff;
         }
 
         button#toggle-form.active:hover {
-        background: #a71d2a; /* rouge plus foncé au survol */
+        background: #a71d2a;
         }   
 
 

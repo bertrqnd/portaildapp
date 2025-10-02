@@ -11,34 +11,14 @@
       "image": "src/limesurvey.png"
     },
     {
-      "title": "Voltaire",
-      "url": "https://compte.groupe-voltaire.fr/user/universe/2932/list",
-      "image": "src/voltaire.png"
-    },
-    {
       "title": "GLPI",
       "url": "https://support.iut-tlse3.fr",
       "image": "src/glpi.png"
     },
     {
-      "title": "ENT personnel",
-      "url": "https://ent-personnels.univ-tlse3.fr",
-      "image": "src/ent.png"
-    },
-    {
       "title": "Office",
       "url": "https://portal.office.com",
       "image": "src/office.png"
-    },
-    {
-      "title": "Compilatio",
-      "url": "https://app.compilatio.net",
-      "image": "src/compilatio.png"
-    },
-    {
-      "title": "Wooclap",
-      "url": "https://app.wooclap.com",
-      "image": "src/wooclap.jpg"
     },
     {
       "title": "Wooflash",
@@ -61,11 +41,6 @@
       "image": "src/iut.png"
     },
     {
-      "title": "GCID",
-      "url": "https://gcid.iut-tlse3.fr",
-      "image": "src/gcid.png"
-    },
-    {
       "title": "Mahara",
       "url": "https://moodle.iut-tlse3.fr/mahara/",
       "image": "src/mahara.png"
@@ -76,16 +51,6 @@
       "image": "src/softphone.png"
     },
     {
-      "title": "Celcat - emploi du temps",
-      "url": "https://edt.iut-tlse3.fr/planning/",
-      "image": "src/celcatg.png"
-    },
-    {
-      "title": "Celcat - gestion emploi du temps",
-      "url": "https://edt.iut-tlse3.fr/",
-      "image": "src/celcat.jpg"
-    },
-    {
       "title": "Qui fait quoi",
       "url": "https://quifaitquoi.iut-tlse3.fr/",
       "image": "src/quifaitquoi.png"
@@ -94,11 +59,6 @@
       "title": "Pass IUT",
       "url": "https://www.iut-tlse3.fr/passiut/",
       "image": "src/iut.png"
-    },
-    {
-      "title": "Trombinoscope",
-      "url": "https://trombi.iut-tlse3.fr/",
-      "image": "src/trombi.png"
     },
     {
       "title": "Sympa personnel",
@@ -121,16 +81,6 @@
       "image": "src/cybersecurite.png"
     },
     {
-      "title": "ENT étudiants",
-      "url": "https://ent-etudiants.univ-tlse3.fr",
-      "image": "src/ent.png"
-    },
-    {
-      "title": "Ecri+",
-      "url": "https://app.tests.ecriplus.fr/connexion",
-      "image": "src/1759320759533.png"
-    },
-    {
       "title": "Moodle",
       "url": "https://moodle.iut-tlse3.fr/",
       "image": "src/1759325669984.png"
@@ -148,16 +98,6 @@
       "image": "src/matomo.png"
     },
     {
-      "title": "Admin teams",
-      "url": "https://admin.teams.microsoft.com/",
-      "image": "src/teams.jpg"
-    },
-    {
-      "title": "Admin Sharepoint online",
-      "url": "https://toulouse3-admin.sharepoint.com",
-      "image": "src/sharepoint.png"
-    },
-    {
       "title": "Sharepoint onpremise : bac à sable tice",
       "url": "https://bacasable-tice.iut-tlse3.fr/",
       "image": "src/sharepoint.png"
@@ -166,11 +106,6 @@
       "title": "Entra",
       "url": "https://entra.microsoft.com",
       "image": "src/entra.jpg"
-    },
-    {
-      "title": "Base de données Exchange",
-      "url": "https://polesi.iut-tlse3.fr/migration-exchange-db/",
-      "image": "src/exchange.png"
     },
     {
       "title": "Base de données Moodle",

@@ -104,10 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = document.getElementById('url').value.trim();
         const imageFile = document.getElementById('image').files[0];
 
-        if (!title || !url || !imageFile) {
-            alert("Tous les champs sont obligatoires");
+        if (!title || !url ) {
+            alert("Vous devez donner un titre et une URL");
             return;
         }
+
 
         if (imageFile.size > 2 * 1024 * 1024) { // 2MB
             alert("La taille de l'image ne doit pas dépasser 2MB");
@@ -117,7 +118,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('url', url);
-        formData.append('image', imageFile);
+
+        if (!imageFile) {
+            const defaultImageUrl = '/src/default.png'; // chemin vers ton image dans public/src
+            const response = await fetch(defaultImageUrl);
+            const blob = await response.blob();
+            const defaultFile = new File([blob], 'default.png', { type: blob.type });
+            formData.append('image', defaultFile);
+            } else {
+                    formData.append('image', imageFile);
+                    }
 
         try {
             const res = await fetch(`/api/services/${type}`, { // ✅ chemin relatif
