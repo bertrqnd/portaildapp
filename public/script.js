@@ -105,6 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        if (imageFile.size > 2 * 1024 * 1024) { // 2MB
+            alert("La taille de l'image ne doit pas dépasser 2MB");
+            return;
+        }
+
         const formData = new FormData();
         formData.append('title', title);
         formData.append('url', url);
