@@ -149,6 +149,7 @@ button#toggle-form.active:hover {
     display: none;
     margin-top: 40px;
     padding: 20px;
+    color: #1f1f1f;
     background: #fff;
     border-radius: 10px;
     font-family: 'Montserrat', Arial, sans-serif;
@@ -208,7 +209,7 @@ button#toggle-form.active:hover {
 .edit-file-input::file-selector-button {
     content: "Logo...";
     cursor: pointer;
-    padding: 3px 6px;
+    padding: 3x 6px;
     font-size: 0.8em;
 }
 
@@ -223,4 +224,8 @@ button#toggle-form.active:hover {
 .edit-cancel-btn {
     font-size: 0.8em;
     padding: 3px 5px;
+}
+
+.edit-btn{
+    color:#dc3545
 }

@@ -95,7 +95,7 @@
     {
       "title": "Limesurvey (sans CAS)",
       "url": "https://enquetes.univ-tlse3.fr/admin/authentication/sa/login/noAuthCAS/true",
-      "image": "src/limesurvey.png"
+      "image": "src/1759495004466.png"
     },
     {
       "title": "Matomo",
@@ -105,7 +105,7 @@
     {
       "title": "Entra",
       "url": "https://entra.microsoft.com",
-      "image": "src/entra.jpg"
+      "image": "src/1759495000143.png"
     }
   ]
 }

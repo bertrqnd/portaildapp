@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Fonction pour activer le mode édition
-function enableEditMode(card, app, type) {
+    function enableEditMode(card, app, type) {
     card.innerHTML = ''; // vider le contenu normal
     card.classList.add('editing'); // classe CSS pour le mode édition
 
@@ -226,6 +226,15 @@ function enableEditMode(card, app, type) {
             return;
         }
 
+        // Type MIME image
+        if(imageFile){
+            const validImageTypes = ['image/jpeg', 'image/png','image/webp'];
+            if (!validImageTypes.includes(imageFile.type)) {
+                alert("Le fichier doit être une image (jpg, png, webp)");
+                return;
+            }
+        }
+
         // Taille max 2MB
         if (imageFile && imageFile.size > 2 * 1024 * 1024) { 
             alert("La taille de l'image ne doit pas dépasser 2MB");
@@ -237,6 +246,7 @@ function enableEditMode(card, app, type) {
         formData.append('title', title);
         formData.append('url', url);
 
+        // Si pas d'image, utiliser l'image par défaut
         if (!imageFile) {
             const defaultImageUrl = '/src/default.png'; 
             const response = await fetch(defaultImageUrl);
@@ -247,6 +257,8 @@ function enableEditMode(card, app, type) {
                     formData.append('image', imageFile);
                     }
 
+
+        // Envoi de la requête
         try {
             const res = await fetch(`/api/services/${type}`, { 
                 method: 'POST',
