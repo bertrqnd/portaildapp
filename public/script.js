@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Logo
         const img = document.createElement('img');
-        img.src = app.image; // ✅ ex: "src/123456.png" → fonctionne en dev et prod
+        img.src = app.image; 
         img.alt = app.title;
 
         // Titre
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.className = 'delete-btn';
         deleteBtn.addEventListener('click', async () =>  {
                 try {
-                    await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, { // ✅ chemin relatif
+                    await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, {
                         method: 'DELETE'
                     });
                     fetchServices();
@@ -110,17 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
 
-        if (imageFile && imageFile.size > 2 * 1024 * 1024) { // 2MB
+        if (imageFile && imageFile.size > 2 * 1024 * 1024) { 
             alert("La taille de l'image ne doit pas dépasser 2MB");
             return;
         }
+
+        //type mm
 
         const formData = new FormData();
         formData.append('title', title);
         formData.append('url', url);
 
         if (!imageFile) {
-            const defaultImageUrl = '/src/default.png'; // chemin vers ton image dans public/src
+            const defaultImageUrl = '/src/default.png'; 
             const response = await fetch(defaultImageUrl);
             const blob = await response.blob();
             const defaultFile = new File([blob], 'default.png', { type: blob.type });
@@ -130,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
         try {
-            const res = await fetch(`/api/services/${type}`, { // ✅ chemin relatif
+            const res = await fetch(`/api/services/${type}`, { 
                 method: 'POST',
                 body: formData
             });
