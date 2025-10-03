@@ -11,11 +11,6 @@
       "image": "src/limesurvey.png"
     },
     {
-      "title": "GLPI",
-      "url": "https://support.iut-tlse3.fr",
-      "image": "src/1759483805657.png"
-    },
-    {
       "title": "Office",
       "url": "https://portal.office.com",
       "image": "src/office.png"
@@ -88,7 +83,12 @@
     {
       "title": "Google",
       "url": "https://www.google.com",
-      "image": "src/1759484817733.png"
+      "image": "src/1759485099940.png"
+    },
+    {
+      "title": "Googlz",
+      "url": "https://www.google.com",
+      "image": "src/1759485129456.png"
     }
   ],
   "admin": [
@@ -106,16 +106,6 @@
       "title": "Entra",
       "url": "https://entra.microsoft.com",
       "image": "src/entra.jpg"
-    },
-    {
-      "title": "Base de données Moodle",
-      "url": "http://www.iut-tlse3.fr/phpmyadmin/",
-      "image": "src/1759319588629.png"
-    },
-    {
-      "title": "Ecri+ (suivi des étudiants)",
-      "url": "https://eval.tests.ecriplus.fr/",
-      "image": "src/1759320269464.png"
     }
   ]
 }

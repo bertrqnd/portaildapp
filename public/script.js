@@ -68,11 +68,11 @@ function enableEditMode(card, app, type) {
     btnContainer.className = 'edit-btn-container';
 
     const saveBtn = document.createElement('button');
-    saveBtn.textContent = '💾 Sauver';
+    saveBtn.textContent = '💾';
     saveBtn.className = 'edit-save-btn';
 
     const cancelBtn = document.createElement('button');
-    cancelBtn.textContent = '❌ Annuler';
+    cancelBtn.textContent = '❌';
     cancelBtn.className = 'edit-cancel-btn';
 
     btnContainer.appendChild(saveBtn);

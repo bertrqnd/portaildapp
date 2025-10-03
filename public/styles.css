@@ -1,305 +1,226 @@
- @import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
-        
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-            background: #1f1f1f;
-            margin: 0;
-        }
-        
-        h1 {
-            font-family: 'Montserrat', Arial, sans-serif;
-            color: #fff;
-            font-size: 2.2em;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-        }
-        
-        h2 {
-            color: #fff;
-            font-family: 'Montserrat', Arial, sans-serif;
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-        
-        .main-container {
-            width: 100%;
-            max-width: none;
-            margin: 0;
-            padding: 0 20px;
-        }
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700&display=swap');
 
-        .header-container {
-            display: flex;
-            justify-content: space-between; /* titre à gauche, bouton à droite */
-            align-items: center;           /* centre verticalement */
-            margin-bottom: 20px;
-        }
-        
-        #userapp-container,
-        #adminapp-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            align-items: stretch;
-            margin-left: 0;
-            margin-right: 0;
-        }
-        
-        .app-card {
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 10px;
-            max-width: 100%;
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
-            background: #fff;
-            border-radius: 5px;
-        }
-        
-        .app-card:hover {
-            transform: scale(1.03);
-        }
-        
-        .app-card a {
-            display: flex;
-            align-items: center;
-            color: #1f1f1f;
-            text-decoration: none;
-            font-weight: bold;
-            width: 100%;
-        }
-        
-        .app-card img {
-            width: 50px;
-            height: 50px;
-            margin-right: 15px;
-            border-radius: 5px;
-            transition: transform 0.2s ease;
-            object-fit: contain;
-        }
-        
-        .app-card p {
-            margin: 0;
-        }
-
-        /* --- Bouton supprimer (X) --- */
-        .app-card .delete-btn {
-        position: absolute;
-        top: 0px;
-        right: 4px;
-        font-size: 14px;
-        color: #1f1f1f;
-        cursor: pointer;
-        opacity: 0; 
-        }
-
-        .show-delete .app-card .delete-btn {
-        opacity: 1; 
-        }
-
-        .app-card .delete-btn:hover {
-        transform: scale(1.2);
-        }
-
-        button#toggle-form {
-        margin-top: 20px;
-        padding: 10px 15px;
-        background: #007bff;
-        border: none;
-        font-weight: bold;
-        font-size: larger;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        font-family: 'Montserrat', Arial, sans-serif;
-        }
-
-        button#toggle-form:hover {
-        background: #0056b3;
-        }
-
-        button#toggle-form.active {
-        background: #dc3545; 
-        color: #fff;
-        }
-
-        button#toggle-form.active:hover {
-        background: #a71d2a;
-        }   
-
-
-        #form-container {
-        display: none;
-        margin-top: 40px;
-        padding: 20px;
-        background: #fff;
-        border-radius: 10px;
-        font-family: 'Montserrat', Arial, sans-serif;
-        font-size: small;
-        }
-
-        #form-title {
-        margin-top: 0;
-        margin-bottom: 20px;
-        font-family: 'Montserrat', Arial, sans-serif;
-        color: #1f1f1f;
-        }
-
-        /* --- Bouton édition (crayon) --- */
-        .app-card .edit-btn {
-        position: absolute;
-        bottom: 4px;    
-        right: 4px;     
-        font-size: 16px;
-        color: #1f1f1f;
-        cursor: pointer;
-        opacity: 0;      
-        }
-
-        .show-delete .app-card .edit-btn {
-        opacity: 1;     
-        }
-
-        .app-card .edit-btn:hover {
-        transform: scale(1.2);
-        }
-
-        /* --- Mode édition --- */
-.app-card.editing {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+/* --- Global --- */
+*, *::before, *::after {
+    box-sizing: border-box;
 }
 
-.edit-img-container {
-    flex: 0 0 50px;
-    display: flex;
-    align-items: center;
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+    background: #1f1f1f;
+    color: #fff;
 }
 
-.edit-preview-img {
+h1, h2 {
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2 {
+    margin: 40px 0 20px 0;
+}
+
+/* --- Containers --- */
+.main-container {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#userapp-container,
+#adminapp-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* --- App Card --- */
+.app-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    max-width: 100%;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.app-card:hover {
+    transform: scale(1.03);
+}
+
+.app-card a {
+    display: flex;
+    align-items: center;
+    color: #1f1f1f;
+    text-decoration: none;
+    font-weight: bold;
+    width: 100%;
+}
+
+.app-card img {
     width: 50px;
     height: 50px;
+    margin-right: 15px;
+    border-radius: 5px;
     object-fit: contain;
+    transition: transform 0.2s ease;
 }
 
-.edit-input-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    flex: 1;
+.app-card p {
+    margin: 0;
 }
 
-.edit-title-input {
-    font-size: 0.9em;
-    margin-bottom: 4px;
-}
-
-.edit-url-input {
-    font-size: 0.8em;
-    margin-bottom: 4px;
-}
-
-.edit-file-input {
-    font-size: 0.8em;
-    margin-bottom: 4px;
-}
-
-.edit-btn-container {
-    margin-top: 5px;
-    display: flex;
-    gap: 5px;
-}
-
-.edit-save-btn, .edit-cancel-btn {
-    font-size: 0.8em;
-    padding: 3px 5px;
-}
-
-/* Conteneur de la carte en mode édition */
-.app-card.editing {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-/* Conteneur image */
-.edit-img-container {
-    flex: 0 0 50px;
-    display: flex;
-    align-items: center;
-}
-
-/* Image de prévisualisation */
-.edit-preview-img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-}
-
-/* Conteneur des inputs */
-.edit-input-container {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10px;
-    flex: 1;
-    padding: 5px; /* Ajout d’un padding intérieur */
-    box-sizing: border-box; /* pour que le padding ne déborde pas */
-}
-
-/* Champ titre */
-.edit-title-input {
-    font-size: 0.9em;
-    margin-bottom: 4px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Champ URL */
-.edit-url-input {
-    font-size: 0.8em;
-    margin-bottom: 4px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Champ fichier (avec remplacement du texte) */
-.edit-file-input {
-    font-size: 0.8em;
-    margin-bottom: 4px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Pour remplacer le bouton du input file et masquer le texte "Aucun fichier sélectionné" */
-.edit-file-input::-webkit-file-upload-button {
-    content: "Logo..."; /* remplace "Parcourir..." par "Logo..." */
+/* --- Delete Button --- */
+.app-card .delete-btn,
+.app-card .edit-btn {
+    position: absolute;
+    font-size: 14px;
+    color: #1f1f1f;
     cursor: pointer;
-    padding: 3px 6px;
-    font-size: 0.8em;
+    opacity: 0;
+    transition: transform 0.2s ease;
 }
 
-.edit-file-input::file-selector-button {
-    content: "Logo..."; /* pour Firefox et autres navigateurs modernes */
+.show-delete .app-card .delete-btn,
+.show-delete .app-card .edit-btn {
+    opacity: 1;
+}
+
+.app-card .delete-btn {
+    top: 0;
+    right: 4px;
+}
+
+.app-card .edit-btn {
+    bottom: 4px;
+    right: 4px;
+    font-size: 16px;
+}
+
+.app-card .delete-btn:hover,
+.app-card .edit-btn:hover {
+    transform: scale(1.2);
+}
+
+/* --- Toggle Form Button --- */
+button#toggle-form {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #007bff;
+    border: none;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 3px 6px;
-    font-size: 0.8em;
+    font-family: 'Montserrat', Arial, sans-serif;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Masquer le texte par défaut "Aucun fichier sélectionné" */
-.edit-file-input::-webkit-file-upload-text {
+button#toggle-form:hover {
+    background: #0056b3;
+}
+
+button#toggle-form.active {
+    background: #dc3545;
+    color: #fff;
+}
+
+button#toggle-form.active:hover {
+    background: #a71d2a;
+}
+
+/* --- Form Container --- */
+#form-container {
     display: none;
+    margin-top: 40px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: small;
 }
 
-/* Conteneur des boutons */
+#form-title {
+    margin: 0 0 20px 0;
+    color: #1f1f1f;
+}
+
+/* --- Edit Mode --- */
+.app-card.editing {
+    flex-direction: row;
+    align-items: center;
+}
+
+.edit-img-container {
+    flex: 0 0 50px;
+    display: flex;
+    align-items: center;
+}
+
+.edit-preview-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.edit-input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.edit-title-input,
+.edit-url-input,
+.edit-file-input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+}
+
+.edit-title-input {
+    font-size: 0.9em;
+}
+
+.edit-url-input,
+.edit-file-input {
+    font-size: 0.8em;
+}
+
+/* --- File Input Button --- */
+.edit-file-input::-webkit-file-upload-button,
+.edit-file-input::file-selector-button {
+    content: "Logo...";
+    cursor: pointer;
+    padding: 3px 6px;
+    font-size: 0.8em;
+}
+
+/* --- Edit Buttons Container --- */
 .edit-btn-container {
-    margin-top: 5px;
+    margin-top: 3px;
     display: flex;
     gap: 5px;
 }
 
-.edit-save-btn, .edit-cancel-btn {
+.edit-save-btn,
+.edit-cancel-btn {
     font-size: 0.8em;
     padding: 3px 5px;
 }
