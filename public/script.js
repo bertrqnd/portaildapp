@@ -86,30 +86,25 @@ document.addEventListener('DOMContentLoaded', () => {
     card.appendChild(imgContainer);
     card.appendChild(inputContainer);
 
-    // --- Sauver ---
+    // Sauver
     saveBtn.addEventListener('click', async () => {
         const formData = new FormData();
         formData.append('title', titleInput.value.trim());
         formData.append('url', urlInput.value.trim());
+
+        // Seulement si une nouvelle image est choisie
         if (fileInput.files[0]) {
             formData.append('image', fileInput.files[0]);
         }
-
-        if (!fileInput.files[0]) {
-            const defaultImageUrl = '/src/default.png'; 
-            const response = await fetch(defaultImageUrl);
-            const blob = await response.blob();
-            const defaultFile = new File([blob], 'default.png', { type: blob.type });
-            formData.append('image', defaultFile);
-            }
 
         try {
             const res = await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, {
                 method: 'PUT',
                 body: formData
             });
-            if (res.ok) fetchServices();
-            else {
+            if (res.ok) {
+                fetchServices();
+            } else {
                 const data = await res.json();
                 alert(`Erreur : ${data.error}`);
             }
@@ -117,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Erreur modification :', err);
         }
     });
+
 
     // --- Annuler ---
     cancelBtn.addEventListener('click', () => {
