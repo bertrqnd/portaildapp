@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        //type mm
+        //type mm è--
 
         const formData = new FormData();
         formData.append('title', title);
