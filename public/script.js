@@ -29,6 +29,107 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // Fonction pour activer le mode édition
+    // Fonction pour activer le mode édition
+function enableEditMode(card, app, type) {
+    card.innerHTML = ''; // vider le contenu normal
+    card.classList.add('editing'); // classe CSS pour le mode édition
+
+    // Conteneur image
+    const imgContainer = document.createElement('div');
+    imgContainer.className = 'edit-img-container';
+
+    const previewImg = document.createElement('img');
+    previewImg.src = app.image;
+    previewImg.alt = "Logo actuel";
+    previewImg.className = 'edit-preview-img';
+    imgContainer.appendChild(previewImg);
+
+    // Conteneur texte / inputs
+    const inputContainer = document.createElement('div');
+    inputContainer.className = 'edit-input-container';
+
+    const titleInput = document.createElement('input');
+    titleInput.type = 'text';
+    titleInput.value = app.title;
+    titleInput.className = 'edit-title-input';
+
+    const urlInput = document.createElement('input');
+    urlInput.type = 'text';
+    urlInput.value = app.url;
+    urlInput.className = 'edit-url-input';
+
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file';
+    fileInput.accept = 'image/*';
+    fileInput.className = 'edit-file-input';
+
+    const btnContainer = document.createElement('div');
+    btnContainer.className = 'edit-btn-container';
+
+    const saveBtn = document.createElement('button');
+    saveBtn.textContent = '💾 Sauver';
+    saveBtn.className = 'edit-save-btn';
+
+    const cancelBtn = document.createElement('button');
+    cancelBtn.textContent = '❌ Annuler';
+    cancelBtn.className = 'edit-cancel-btn';
+
+    btnContainer.appendChild(saveBtn);
+    btnContainer.appendChild(cancelBtn);
+
+    inputContainer.appendChild(titleInput);
+    inputContainer.appendChild(urlInput);
+    inputContainer.appendChild(fileInput);
+    inputContainer.appendChild(btnContainer);
+
+    card.appendChild(imgContainer);
+    card.appendChild(inputContainer);
+
+    // --- Sauver ---
+    saveBtn.addEventListener('click', async () => {
+        const formData = new FormData();
+        formData.append('title', titleInput.value.trim());
+        formData.append('url', urlInput.value.trim());
+        if (fileInput.files[0]) {
+            formData.append('image', fileInput.files[0]);
+        }
+
+        try {
+            const res = await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, {
+                method: 'PUT',
+                body: formData
+            });
+            if (res.ok) fetchServices();
+            else {
+                const data = await res.json();
+                alert(`Erreur : ${data.error}`);
+            }
+        } catch (err) {
+            console.error('Erreur modification :', err);
+        }
+    });
+
+    // --- Annuler ---
+    cancelBtn.addEventListener('click', () => {
+        const parent = card.parentNode;
+        const newCard = createAppCard(app, type);
+        parent.replaceChild(newCard, card);
+        card.classList.remove('editing');
+    });
+
+    // --- Fermer le mode édition avec le bouton en haut à droite ---
+    const topButton = document.getElementById('toggle-form');
+    const closeEditListener = () => cancelBtn.click();
+    topButton.addEventListener('click', closeEditListener);
+
+    cancelBtn.addEventListener('click', () => {
+        topButton.removeEventListener('click', closeEditListener);
+    });
+}
+
+
+
     // Création d'une carte d'application
     function createAppCard(app, type) {
         const card = document.createElement('div');
@@ -74,25 +175,32 @@ document.addEventListener('DOMContentLoaded', () => {
         );
         card.appendChild(deleteBtn);
 
+            // --- Bouton édition ---
+        const editBtn = document.createElement('span');
+        editBtn.textContent = '✎';
+        editBtn.className = 'edit-btn';
+        editBtn.addEventListener('click', () => enableEditMode(card, app, type));
+        card.appendChild(editBtn);
+
         return card;
     }
 
     // Toggle du formulaire et changement du bouton
     toggleForm.addEventListener('click', () => {
-        const showing = formContainer.style.display === 'block';
-        if (!showing) {
-            formContainer.style.display = 'block';
-            userContainer.classList.add('show-delete');
-            adminContainer.classList.add('show-delete');
-            toggleForm.textContent = '-';
-            toggleForm.classList.add('active');
-        } else {
-            formContainer.style.display = 'none';
-            userContainer.classList.remove('show-delete');
-            adminContainer.classList.remove('show-delete');
-            toggleForm.textContent = '+';
-            toggleForm.classList.remove('active');
-        }
+    const showing = formContainer.style.display === 'block';
+    if (!showing) {
+        formContainer.style.display = 'block';
+        userContainer.classList.add('show-delete');
+        adminContainer.classList.add('show-delete');
+        toggleForm.textContent = '✖';
+        toggleForm.classList.add('active');
+    } else {
+        formContainer.style.display = 'none';
+        userContainer.classList.remove('show-delete');
+        adminContainer.classList.remove('show-delete');
+        toggleForm.textContent = '✎';
+        toggleForm.classList.remove('active');
+    }
     });
 
     // Soumission du formulaire
@@ -103,20 +211,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const title = document.getElementById('title').value.trim();
         const url = document.getElementById('url').value.trim();
         const imageFile = document.getElementById('image').files[0];
-
+        
+        // Validation
         if (!title || !url ) {
             alert("Vous devez donner un titre et une URL");
             return;
         }
 
-
+        // Taille max 2MB
         if (imageFile && imageFile.size > 2 * 1024 * 1024) { 
             alert("La taille de l'image ne doit pas dépasser 2MB");
             return;
         }
 
-        //type mm è--
-
+        // Préparation des données du formulaire
         const formData = new FormData();
         formData.append('title', title);
         formData.append('url', url);

@@ -145,3 +145,161 @@
         font-family: 'Montserrat', Arial, sans-serif;
         color: #1f1f1f;
         }
+
+        /* --- Bouton édition (crayon) --- */
+        .app-card .edit-btn {
+        position: absolute;
+        bottom: 4px;    
+        right: 4px;     
+        font-size: 16px;
+        color: #1f1f1f;
+        cursor: pointer;
+        opacity: 0;      
+        }
+
+        .show-delete .app-card .edit-btn {
+        opacity: 1;     
+        }
+
+        .app-card .edit-btn:hover {
+        transform: scale(1.2);
+        }
+
+        /* --- Mode édition --- */
+.app-card.editing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.edit-img-container {
+    flex: 0 0 50px;
+    display: flex;
+    align-items: center;
+}
+
+.edit-preview-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.edit-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    flex: 1;
+}
+
+.edit-title-input {
+    font-size: 0.9em;
+    margin-bottom: 4px;
+}
+
+.edit-url-input {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+}
+
+.edit-file-input {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+}
+
+.edit-btn-container {
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.edit-save-btn, .edit-cancel-btn {
+    font-size: 0.8em;
+    padding: 3px 5px;
+}
+
+/* Conteneur de la carte en mode édition */
+.app-card.editing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Conteneur image */
+.edit-img-container {
+    flex: 0 0 50px;
+    display: flex;
+    align-items: center;
+}
+
+/* Image de prévisualisation */
+.edit-preview-img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+/* Conteneur des inputs */
+.edit-input-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    flex: 1;
+    padding: 5px; /* Ajout d’un padding intérieur */
+    box-sizing: border-box; /* pour que le padding ne déborde pas */
+}
+
+/* Champ titre */
+.edit-title-input {
+    font-size: 0.9em;
+    margin-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Champ URL */
+.edit-url-input {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Champ fichier (avec remplacement du texte) */
+.edit-file-input {
+    font-size: 0.8em;
+    margin-bottom: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Pour remplacer le bouton du input file et masquer le texte "Aucun fichier sélectionné" */
+.edit-file-input::-webkit-file-upload-button {
+    content: "Logo..."; /* remplace "Parcourir..." par "Logo..." */
+    cursor: pointer;
+    padding: 3px 6px;
+    font-size: 0.8em;
+}
+
+.edit-file-input::file-selector-button {
+    content: "Logo..."; /* pour Firefox et autres navigateurs modernes */
+    cursor: pointer;
+    padding: 3px 6px;
+    font-size: 0.8em;
+}
+
+/* Masquer le texte par défaut "Aucun fichier sélectionné" */
+.edit-file-input::-webkit-file-upload-text {
+    display: none;
+}
+
+/* Conteneur des boutons */
+.edit-btn-container {
+    margin-top: 5px;
+    display: flex;
+    gap: 5px;
+}
+
+.edit-save-btn, .edit-cancel-btn {
+    font-size: 0.8em;
+    padding: 3px 5px;
+}
