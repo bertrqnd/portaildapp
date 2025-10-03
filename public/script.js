@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Fonction pour activer le mode édition
+
     // Fonction pour activer le mode édition
 function enableEditMode(card, app, type) {
     card.innerHTML = ''; // vider le contenu normal
@@ -94,6 +94,14 @@ function enableEditMode(card, app, type) {
         if (fileInput.files[0]) {
             formData.append('image', fileInput.files[0]);
         }
+
+        if (!fileInput.files[0]) {
+            const defaultImageUrl = '/src/default.png'; 
+            const response = await fetch(defaultImageUrl);
+            const blob = await response.blob();
+            const defaultFile = new File([blob], 'default.png', { type: blob.type });
+            formData.append('image', defaultFile);
+            }
 
         try {
             const res = await fetch(`/api/services/${type}/${encodeURIComponent(app.title)}`, {
